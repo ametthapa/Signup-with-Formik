@@ -1,4 +1,4 @@
-import { useField } from "formik";
+import { ErrorMessage, useField } from "formik";
 
 const TextField = ({ label, ...props }) => {
   const [field, meta] = useField(props);
@@ -7,10 +7,15 @@ const TextField = ({ label, ...props }) => {
     <div className="pt-4 font-semibold">
       <label htmlFor={field.name}>{label}</label>
       <input
-        className="ml-2 outline-black p-1 mt-3 w-3/4 block"
+        className="ml-2 outline-initial focus:outline-final p-1 mt-3 w-3/4 block"
         {...field}
         {...props}
         autoComplete="off"
+      />
+      <ErrorMessage
+        name={field.name}
+        component="div"
+        className="text-red-500 font-semibold"
       />
     </div>
   );
