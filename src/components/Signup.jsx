@@ -1,5 +1,6 @@
 import { Formik, Form } from "formik";
 import TextField from "./TextField";
+import RadioButtonField from "./TextField";
 import * as Yup from "yup";
 
 const Signup = () => {
@@ -17,6 +18,7 @@ const Signup = () => {
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords must match")
       .required("Confirm Password is Required"),
+    gender: Yup.string().required("Gender is required"),
   });
   return (
     <Formik
@@ -26,6 +28,8 @@ const Signup = () => {
         email: "",
         password: "",
         confirmPassword: "",
+        gender: "",
+        hobbies: "",
       }}
       validationSchema={validate}
     >
@@ -37,6 +41,24 @@ const Signup = () => {
             <TextField label="First Name" name="firstName" type="text" />
             <TextField label="Last Name" name="lastName" type="text" />
             <TextField label="E-mail" name="email" type="email" />
+            <RadioButtonField
+              label="Gender"
+              name="gender"
+              type="radio"
+              value="male"
+            />
+            Male
+            <RadioButtonField name="gender" type="radio" value="female" />
+            Female
+            <RadioButtonField
+              label="Hobbies"
+              name="hobbies"
+              type="checkbox"
+              value="football"
+            />
+            Football
+            <RadioButtonField name="hobbies" type="checkbox" value="baseball" />
+            Baseball
             <TextField label="Password" name="password" type="password" />
             <TextField
               label="Confirm Password"
