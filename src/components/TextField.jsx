@@ -4,10 +4,10 @@ const TextField = ({ label, ...props }) => {
   const [field, meta] = useField(props);
 
   return (
-    <div className="pt-4 font-semibold">
+    <div className="pt-3 font-semibold">
       <label htmlFor={field.name}>{label}</label>
       <input
-        className="ml-2 outline-initial focus:outline-final p-1 mt-3 w-3/4 block"
+        className="ml-2 outline-initial focus:outline-final p-1 mt-2 w-3/4 block"
         {...field}
         {...props}
         autoComplete="off"
