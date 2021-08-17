@@ -7,7 +7,9 @@ const TextField = ({ label, ...props }) => {
     <div className="pt-3 font-semibold">
       <label htmlFor={field.name}>{label}</label>
       <input
-        className="ml-2 outline-initial focus:outline-final p-1 mt-2 w-3/4 block"
+        className={`ml-2 outline-initial focus:outline-final p-1 mt-2 w-3/4 block ${
+          meta.touched && meta.error && "is-invalid"
+        } `}
         {...field}
         {...props}
         autoComplete="off"
